@@ -553,16 +553,16 @@
        SUPABASE CLIENT
   ══════════════════════════════════════ -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <!-- config.js 는 .gitignore 처리 — 키가 GitHub에 올라가지 않습니다 -->
+  <script src="config.js"></script>
 
   <!-- ══════════════════════════════════════
        JAVASCRIPT
   ══════════════════════════════════════ -->
   <script>
     // ─── Supabase 초기화 ──────────────────────────────────────────────────────
-    const SUPABASE_URL  = 'https://xcfglkomgoufwunalsqy.supabase.co';
-    const SUPABASE_KEY  = 'sb_publishable_oNlNE6xYV_v2WbWOxqR5jg_Blq_TR86';
-    const BUCKET        = 'post-images';
-    const sb            = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const BUCKET = 'post-images';
+    const sb     = supabase.createClient(PICLOG_CONFIG.supabaseUrl, PICLOG_CONFIG.supabaseKey);
 
     // ─── State ───────────────────────────────────────────────────────────────
     let posts           = [];
