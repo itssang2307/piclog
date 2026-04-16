@@ -553,16 +553,21 @@
        SUPABASE CLIENT
   ══════════════════════════════════════ -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <!-- config.js 는 .gitignore 처리 — 키가 GitHub에 올라가지 않습니다 -->
-  <script src="config.js"></script>
-
   <!-- ══════════════════════════════════════
        JAVASCRIPT
   ══════════════════════════════════════ -->
   <script>
     // ─── Supabase 초기화 ──────────────────────────────────────────────────────
+    // 로컬: config.js 의 PICLOG_CONFIG 객체 사용
+    // Vercel: 빌드 시 %%VITE_SUPABASE_URL%% / %%VITE_SUPABASE_KEY%% 가 실제 값으로 치환됨
+    const _url = (typeof PICLOG_CONFIG !== 'undefined')
+      ? PICLOG_CONFIG.supabaseUrl
+      : '%%SUPABASE_URL%%';
+    const _key = (typeof PICLOG_CONFIG !== 'undefined')
+      ? PICLOG_CONFIG.supabaseKey
+      : '%%SUPABASE_KEY%%';
     const BUCKET = 'post-images';
-    const sb     = supabase.createClient(PICLOG_CONFIG.supabaseUrl, PICLOG_CONFIG.supabaseKey);
+    const sb     = supabase.createClient(_url, _key);
 
     // ─── State ───────────────────────────────────────────────────────────────
     let posts           = [];

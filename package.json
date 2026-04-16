@@ -1,0 +1,11 @@
+{
+  "name": "piclog",
+  "version": "1.0.0",
+  "description": "글과 이미지를 가볍게 기록하는 공간",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
