@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PicLog - 픽로그</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#9a9d9e",
+                        "on-background": "#2c3436",
+                        "on-secondary-fixed": "#2b4441",
+                        "on-primary-fixed-variant": "#006760",
+                        "primary-fixed-dim": "#6ae8dc",
+                        "on-surface": "#2c3436",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#cce8e4",
+                        "tertiary-fixed": "#b7e7ff",
+                        "error-dim": "#67040d",
+                        "primary-container": "#79f7ea",
+                        "outline": "#747c7e",
+                        "on-tertiary": "#f3faff",
+                        "surface-container-highest": "#dce4e6",
+                        "on-primary-fixed": "#004843",
+                        "on-secondary": "#e2fffa",
+                        "on-tertiary-fixed-variant": "#2f5f74",
+                        "on-tertiary-container": "#24566a",
+                        "surface-container-low": "#f0f4f6",
+                        "error-container": "#fa746f",
+                        "surface-variant": "#dce4e6",
+                        "tertiary-dim": "#28596d",
+                        "inverse-primary": "#7cfaed",
+                        "surface-dim": "#d4dbde",
+                        "surface": "#f8fafb",
+                        "on-surface-variant": "#596063",
+                        "tertiary-container": "#b7e7ff",
+                        "primary-fixed": "#79f7ea",
+                        "inverse-surface": "#0b0f10",
+                        "on-error-container": "#6e0a12",
+                        "tertiary": "#356579",
+                        "on-secondary-fixed-variant": "#47605d",
+                        "outline-variant": "#acb3b6",
+                        "surface-container": "#eaeff0",
+                        "primary": "#006b64",
+                        "surface-tint": "#006b64",
+                        "surface-bright": "#f8fafb",
+                        "secondary-container": "#cce8e4",
+                        "secondary": "#4a6460",
+                        "tertiary-fixed-dim": "#a9d8f0",
+                        "on-secondary-container": "#3d5653",
+                        "secondary-dim": "#3f5855",
+                        "surface-container-high": "#e3e9eb",
+                        "primary-dim": "#005e57",
+                        "on-error": "#fff7f6",
+                        "on-primary": "#e2fffa",
+                        "on-primary-container": "#005c56",
+                        "on-tertiary-fixed": "#0a4356",
+                        "secondary-fixed-dim": "#bedad6",
+                        "error": "#a83836",
+                        "background": "#f8fafb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f8fafb;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary-container">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
+<div class="flex items-center justify-between px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors duration-200 p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<div class="flex flex-col">
+<h1 class="text-2xl font-black text-teal-600 dark:text-teal-400 font-['Plus_Jakarta_Sans'] tracking-tight">PicLog</h1>
+</div>
+</div>
+<div class="hidden md:flex items-center space-gap-6">
+<nav class="flex items-center gap-8 mr-8">
+<a class="text-teal-700 dark:text-teal-300 font-bold" href="#">Feed</a>
+<a class="text-slate-400 dark:text-slate-600 hover:text-teal-500 transition-colors" href="#">Search</a>
+<a class="text-slate-400 dark:text-slate-600 hover:text-teal-500 transition-colors" href="#">Write</a>
+<a class="text-slate-400 dark:text-slate-600 hover:text-teal-500 transition-colors" href="#">Profile</a>
+</nav>
+<button class="text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors duration-200 p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+<div class="md:hidden">
+<button class="text-teal-600 dark:text-teal-400 p-2">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 pt-12 pb-32">
+<!-- Hero Branding Section -->
+<section class="mb-16">
+<h2 class="text-5xl md:text-6xl font-extrabold font-headline tracking-tighter text-on-background mb-4">
+                PicLog
+            </h2>
+<p class="text-xl md:text-2xl text-on-surface-variant font-light max-w-2xl leading-relaxed">
+                글과 이미지를 가볍게 기록하는 공간
+            </p>
+</section>
+<!-- Bento-inspired Editorial Feed -->
+<div class="editorial-grid">
+<!-- Card 1: Landscape (Image Focused) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-shadow duration-300 flex flex-col">
+<div class="aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="cinematic landscape of Jeju island coast with turquoise ocean waves crashing against volcanic basalt rocks under a clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPlpDNTDQ-wIwzwxQp1OJsyU9RB_4YKjhFXOluGJTN9vk_553yyARlW6zgb4oU8EJu0-ptiJNtrh5Mf88eY7XcSRNj3F1SmDdcQkURP4aSFX2vOnc256XyDAxkd2Y8w9o95O4yzKuTjRfm26j6eTnX_nv5T05q1IHVyPG64evNayBALYpTyvqaDCzCqotmDhrH2FVK4AKb2Df59gXdRyph3__CeSutw0vvQQ5lkx7JB18pRWtlsaI7If_XjdjTqS_d40rxazomxw0"/>
+</div>
+<div class="p-8 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-sm text-[10px] font-bold uppercase tracking-widest font-label">Travel</span>
+<time class="text-label-sm text-on-surface-variant text-xs">2023.10.27</time>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-4 text-on-surface">제주도 여행 기록</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                        오늘은 날씨가 정말 좋아서 해안도로를 따라 드라이브를 했어요. 창문을 내리니 시원한 바닷바람이 코끝을 스치고, 끝없이 펼쳐진 수평선이 마음까지 뻥 뚫어주는 기분이었어요.
+                    </p>
+</div>
+</article>
+<!-- Card 2: Thought (Text Only - Large Typography) -->
+<article class="bg-primary-container/10 border border-primary/5 rounded-xl p-10 flex flex-col justify-center items-center text-center min-h-[400px]">
+<span class="material-symbols-outlined text-primary/40 mb-6 text-4xl" data-icon="format_quote">format_quote</span>
+<time class="text-xs text-primary/60 font-bold tracking-widest mb-6">2023.10.26</time>
+<h3 class="text-lg font-bold font-headline mb-6 text-primary">오늘의 생각</h3>
+<p class="text-2xl md:text-3xl font-headline font-semibold text-on-background leading-snug max-w-xs">
+                    "가끔은 아무 생각 없이 걷는 게 가장 큰 위로가 될 때가 있다. 오늘은 그런 날이었다."
+                </p>
+<div class="mt-8 w-12 h-1 bg-primary/20 rounded-full"></div>
+</article>
+<!-- Card 3: Coffee (Asymmetric Mix) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-shadow duration-300 flex flex-col">
+<div class="p-8 pb-0">
+<div class="flex justify-between items-center mb-4">
+<time class="text-xs text-on-surface-variant opacity-60">2023.10.25</time>
+<span class="material-symbols-outlined text-teal-500" data-icon="local_cafe">local_cafe</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-3 text-on-surface">동네 카페 탐방</h3>
+<p class="text-on-surface-variant leading-relaxed font-body mb-6">
+                        새로 생긴 카페 분위기가 너무 좋네요. 커피도 맛있고 잔잔하게 흘러나오는 재즈 음악이 오후의 여유를 더해줍니다. 혼자 책 읽기 딱 좋은 장소를 발견한 것 같아요.
+                    </p>
+</div>
+<div class="mt-auto px-4 pb-4">
+<div class="rounded-lg overflow-hidden h-64">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="top-down view of a ceramic coffee cup with latte art on a rustic wooden table with soft morning sunlight shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBObN5iGhkZOdWkgeaqM_-4BXKXsUNykwueIPoiICsYxu2saLh2HfOKDR9KmTXvrNgXhwu-ly4O7GqUi1ebABrf9qGVLElnD_LOtY7-2snDQam_xHGHPYOjlygjVbdMBGisPmFn9DNqOuKjUOzN_gfiDO25h5nwpz3gHhj3bLg4W3SCR-v73pnWPO-2EONAkPeRDhC6_x9Wi1fpRl1UUS6yGn8IdBzSX_KK2w2LkSJYluSbdUf9iMT13ooNM225yTxmodhejvEuzSE"/>
+</div>
+</div>
+</article>
+<!-- Card 4: Placeholder/Future Entry (Design Filler) -->
+<article class="bg-surface-container rounded-xl p-8 border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center text-center opacity-60 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="add">add</span>
+</div>
+<p class="font-bold text-on-surface-variant">새로운 기록 남기기</p>
+</article>
+</div>
+</main>
+<!-- FAB for Create -->
+<button class="fixed bottom-28 right-8 md:bottom-12 md:right-12 z-50 bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg shadow-primary/20 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="edit" data-weight="fill">edit</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] md:hidden rounded-t-3xl border-t border-slate-100 dark:border-slate-800">
+<a class="flex flex-col items-center justify-center bg-teal-50 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 rounded-2xl px-5 py-2 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-wider mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-all hover:text-teal-500 dark:hover:text-teal-400" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-wider mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-all hover:text-teal-500 dark:hover:text-teal-400" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-wider mt-1">Write</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-all hover:text-teal-500 dark:hover:text-teal-400" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
